@@ -17,3 +17,8 @@ with GigaChat(
 ) as client:
     response = client.chat.create("Привет! Ответь одним предложением.")
     print(response.messages[0].content[0].text)
+    result = client.embeddings(
+        ["Что такое список?", "Как создать список в Python?"],
+        model="Embeddings-2",
+    )
+print(result)
