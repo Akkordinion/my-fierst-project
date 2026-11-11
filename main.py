@@ -85,6 +85,15 @@ if __name__ == "__main__":
     print("Кусков:", len(all_pieces))
     build_index(all_pieces)
 
-    answer, sources = ask("Как создать список?")
-    print("Ответ:", answer)
-    print("Источники:", ", ".join(set(s["source"] for s in sources)))
+    print("Помощник по Python. Для выхода введите: выход")
+    while True:
+        question = input("\nВопрос: ").strip()
+        if question.lower() == "выход":
+            print("До свидания!")
+            break
+        if question == "":
+            continue
+        answer, sources = ask(question)
+        print("Ответ:", answer)
+        if sources:
+            print("Источники:", ", ".join(set(s["source"] for s in sources)))
